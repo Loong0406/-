@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>智慧医院 - 人员调度</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/staff.css">
+</head>
+<body>
+<header>
+    <h1>🏥 智慧医院管理与运维系统</h1>
+    <div class="menu menu2 pulll_left">
+        <ul>
+            <li><a href="index.html">综合看板</a></li>
+            <li><a href="bed.html">床位管理</a></li>
+            <li><a href="device-detail.html">设备管理</a></li>
+            <li class="nav_active"><a href="staff.html">人员调度</a></li>
+            <li><a href="logistics.html">后勤保障</a></li>
+        </ul>
+    </div>
+    <div class="time" id="showTime"></div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);
+        function time() {
+            clearTimeout(t);
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s = dt.getSeconds();
+            document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "日—" + h + "时" + m + "分" + s + "秒";
+            t = setTimeout(time, 1000);
+        }
+    </script>
+</header>
+
+<section class="mainbox">
+    <ul class="clearfix nav1">
+        <!-- 左侧：人员统计 + 今日摘要 + 在岗人员 -->
+        <li>
+            <div class="box">
+                <h2>👥 人员统计</h2>
+                <div class="boxnav">
+                    <div class="yqlist">
+                        <ul class="clearfix">
+                            <li><div class="yq">156</div><span>医生</span></li>
+                            <li><div class="yq">342</div><span>护士</span></li>
+                            <li><div class="yq">87</div><span>技师</span></li>
+                            <li><div class="yq">68</div><span>行政</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h2>📊 今日摘要</h2>
+                <div class="boxnav" style="padding: 6px;">
+                    <div class="summary-cards">
+                        <div class="summary-card"><div class="summary-number" id="onDutyTotal">0</div><div class="summary-label">今日在岗</div></div>
+                        <div class="summary-card"><div class="summary-number" id="onVacation">0</div><div class="summary-label">休假人员</div></div>
+                        <div class="summary-card"><div class="summary-number" id="nightShift">0</div><div class="summary-label">夜班人员</div></div>
+                        <div class="summary-card"><div class="summary-number" id="leaveToday">0</div><div class="summary-label">今日请假</div></div>
+                    </div>
+                    <div class="summary-cards">
+                        <div class="summary-card"><div class="summary-number" id="newStaff">0</div><div class="summary-label">本月入职</div></div>
+                        <div class="summary-card"><div class="summary-number" id="retireStaff">0</div><div class="summary-label">本月离职</div></div>
+                        <div class="summary-card"><div class="summary-number" id="totalStaff">0</div><div class="summary-label">全院总人数</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h2>📋 今日在岗人员 <span style="font-size:11px; color:#7bc5ae;" id="onDutyHint"></span></h2>
+                <div class="boxnav" id="onDutyList"></div>
+            </div>
+        </li>
+
+        <!-- 中间：本周排班表 + 排班统计 -->
+        <li>
+            <div class="box">
+                <h2>📅 本周排班表 <span style="font-size:11px; color:#7bc5ae;">(今日高亮)</span></h2>
+                <div class="boxnav" id="scheduleTable"></div>
+            </div>
+            <div class="box">
+                <h2>📈 各科室排班统计</h2>
+                <div class="boxnav" style="padding: 5px;">
+                    <div id="scheduleStatsChart" class="chart-container"></div>
+                </div>
+            </div>
+        </li>
+
+        <!-- 右侧：人员缺口 + 科室人员分布 -->
+        <li>
+            <div class="box">
+                <h2>🔄 人员缺口预警 <span style="font-size:11px; color:#ff6b6b;" id="urgentHint"></span></h2>
+                <div class="boxnav" id="shortageList"></div>
+            </div>
+            <div class="box">
+                <h2>📊 各科室人员分布</h2>
+                <div class="boxnav" style="padding: 5px;">
+                    <div id="deptStaffChart" class="chart-container"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<script src="js/echarts.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/staff.js"></script>
+</body>
+</html>

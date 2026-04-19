@@ -1,0 +1,138 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "微软雅黑";
+}
+body {
+  color: #fff;
+  font-size: 16px;
+  background: #033c76 url(../images/bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+@font-face {
+  font-family: electronicFont;
+  src: url(../font/DS-DIGIT.TTF);
+}
+html,
+body {
+  min-height: 100%;
+}
+i {
+  margin: 0px;
+  padding: 0px;
+  text-indent: 0px;
+}
+img {
+  border: none;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+header {
+  position: relative;
+  height: 100px;
+  background: url(../images/head_bg.png) no-repeat;
+  background-size: 100% 100%;
+  top: 0;
+}
+header h1 {
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.87);
+  text-align: center;
+  line-height: 80px;
+}
+header .time {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  line-height: 75px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 17px;
+}
+header ul {
+  position: absolute;
+  width: auto;
+  display: flex;
+  top: 15px;
+  right: 0px;
+  background-color: #02a6b5;
+}
+header ul li {
+  width: 80px;
+  flex: 1;
+  line-height: 35px;
+  font-size: 15px;
+  color: #ffeb7b;
+  text-align: center;
+  font-family: electronicFont;
+  border-right: 4px solid #191755;
+}
+header li {
+  list-style-type: none;
+}
+a.active,
+a:focus {
+  outline: none!important;
+  text-decoration: none;
+}
+a:hover {
+  color: #06c;
+  text-decoration: none !important;
+}
+.mainbox {
+  display: flex;
+  width: 1480px;
+  position: relative;
+  padding: 60px 250px  0  200px;
+  margin: 0 auto;
+}
+.mainbox .column {
+  flex: 1;
+}
+.mainbox .column ul li {
+  line-height: 40px;
+}
+.mainbox .column:nth-child(2) {
+  flex: 9;
+  height: 500px;
+  border: 2px solid #02a6b5;
+  background: url(../images/980.jpg) no-repeat;
+}
+.mainbox .column:nth-child(2) video {
+  width: 920px;
+  padding: 5px 20px 0;
+}
+.mainbox .column:nth-child(2) .box2 {
+  top: 400px;
+  bottom: 0;
+  line-height: 80px;
+  padding: 50px 40px 0;
+}
+.mainbox .column:nth-child(2) .box2 img {
+  width: 260px;
+  padding: 10px 10px 0;
+}
+.mainbox .column:nth-child(2) .box1 {
+  width: 540px;
+  padding: 20px 40px 0;
+}
+.mainbox .column:nth-child(2) .box1 ul {
+  padding: 0 50px 0;
+}
+.mainbox .column:nth-child(1) {
+  top: 90px;
+}
+.mainbox .column:nth-child(1) .rel li {
+  border-left: 3px solid #4374a9;
+  line-height: 15px;
+  padding: 5px 20px 10px 10px;
+  list-style-type: none;
+}

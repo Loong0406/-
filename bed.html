@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/bed.css">
+    <title>智慧医院 - 床位管理</title>
+</head>
+<body>
+<header>
+    <h1 class="pulll_left">🏥 智慧医院管理与运维系统</h1>
+    <div class="menu menu2 pulll_left">
+        <ul>
+            <li><a href="index.html">综合看板</a></li>
+            <li class="nav_active"><a href="bed.html">床位管理</a></li>
+            <li><a href="device-detail.html">设备管理</a></li>
+            <li><a href="staff.html">人员调度</a></li>
+            <li><a href="logistics.html">后勤保障</a></li>
+        </ul>
+    </div>
+    <div class="time" id="showTime"></div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);
+        function time() {
+            clearTimeout(t);
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s = dt.getSeconds();
+            document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "日—" + h + "时" + m + "分" + s + "秒";
+            t = setTimeout(time, 1000);
+        }
+    </script>
+</header>
+
+<section>
+    <div class="button-group">
+        <button id="btnOverview" class="active">📊 总览概览</button>
+        <button id="btnWard">🏥 各科室床位</button>
+        <button id="btnFloor">📐 楼层分布</button>
+        <button id="btnWait">⏳ 等待入院</button>
+        <button id="btnSchedule">📅 出院计划</button>
+        <button id="btnStats">📈 统计分析</button>
+    </div>
+
+    <div id="statCards" class="stat-cards">
+        <div class="stat-card">
+            <div class="stat-number" id="totalBeds">1250</div>
+            <div class="stat-label">总床位</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="usedBeds">986</div>
+            <div class="stat-label">已占用</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="freeBeds">264</div>
+            <div class="stat-label">空余床位</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="usageRate">78.9<span style="font-size:18px">%</span></div>
+            <div class="stat-label">使用率</div>
+        </div>
+    </div>
+
+    <div class="container-wrapper">
+        <div id="main"></div>
+        <div id="right-containers">
+            <div id="main1"></div>
+            <div id="main2"></div>
+        </div>
+    </div>
+</section>
+
+<script src="js/echarts.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bed.js"></script>
+</body>
+</html>

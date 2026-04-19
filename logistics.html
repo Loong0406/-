@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>智慧医院 - 后勤保障</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/logistics.css">
+</head>
+<body>
+<header>
+    <h1>🏥 智慧医院管理与运维系统</h1>
+    <div class="menu menu2 pulll_left">
+        <ul>
+            <li><a href="index.html">综合看板</a></li>
+            <li><a href="bed.html">床位管理</a></li>
+            <li><a href="device-detail.html">设备管理</a></li>
+            <li><a href="staff.html">人员调度</a></li>
+            <li class="nav_active"><a href="logistics.html">后勤保障</a></li>
+        </ul>
+    </div>
+    <div class="time" id="showTime"></div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);
+        function time() {
+            clearTimeout(t);
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s = dt.getSeconds();
+            document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "日—" + h + "时" + m + "分" + s + "秒";
+            t = setTimeout(time, 1000);
+        }
+    </script>
+</header>
+
+<section class="mainbox">
+    <ul class="clearfix nav1">
+        <!-- 左侧：物资库存 -->
+        <li>
+            <div class="box">
+                <h2>📦 物资库存预警</h2>
+                <div class="boxnav" id="supplyWarning"></div>
+            </div>
+            <div class="box">
+                <h2>📊 物资消耗趋势</h2>
+                <div class="boxnav" style="padding: 5px;">
+                    <div id="consumeChart" class="chart-container"></div>
+                </div>
+            </div>
+        </li>
+
+        <!-- 中间：能耗监控 -->
+        <li>
+            <div class="box">
+                <h2>⚡ 能耗实时监控</h2>
+                <div class="boxnav" style="padding: 5px;">
+                    <div id="energyMonitor" class="chart-container"></div>
+                </div>
+            </div>
+            <div class="box">
+                <h2>📈 能耗对比</h2>
+                <div class="boxnav" style="padding: 5px;">
+                    <div id="energyCompare" class="chart-container"></div>
+                </div>
+            </div>
+        </li>
+
+        <!-- 右侧：工单系统 + 食堂/车位 -->
+        <li>
+            <div class="box">
+                <h2>🔧 设备报修工单 <span style="font-size:10px; color:#ff6b6b;" id="urgentCount"></span></h2>
+                <div class="boxnav" style="padding: 8px; display: flex; flex-direction: column;">
+                    <div class="order-stats" id="orderStats"></div>
+                    <div class="workorder-list" id="workorderList" style="flex: 1; overflow-y: auto;"></div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="double-chart">
+                    <div class="chart-item">
+                        <h3>🍽️ 食堂就餐统计</h3>
+                        <div class="chart-box">
+                            <div id="canteenChart" class="chart-container"></div>
+                        </div>
+                    </div>
+                    <div class="chart-item">
+                        <h3>🚗 车位使用情况</h3>
+                        <div class="chart-box">
+                            <div id="parkingChart" class="chart-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<script src="js/echarts.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/logistics.js"></script>
+</body>
+</html>

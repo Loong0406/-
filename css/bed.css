@@ -1,0 +1,186 @@
+/* ========== 床位管理页面专属样式 ========== */
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.button-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button-group button:hover {
+    background-color: #45a049;
+}
+.button-group button.active {
+    background-color: #ff9800;
+    border: 2px solid #ffeb7b;
+}
+
+.stat-cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    flex: 1;
+    background: rgba(7,118,181,0.3);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    border-left: 4px solid #7bc5ae;
+}
+.stat-number {
+    font-size: 32px;
+    font-family: electronicFont;
+    color: #ffeb7b;
+}
+.stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 5px;
+}
+
+.section-title {
+    font-size: 18px;
+    color: #ffeb7b;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #7bc5ae;
+}
+
+.alert-item {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+
+.rank-list {
+    padding: 5px;
+}
+.rank-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8px;
+    margin-bottom: 6px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 6px;
+}
+.rank-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 14px;
+}
+.rank-medal {
+    font-size: 18px;
+}
+.rank-rate {
+    color: #ffeb7b;
+    font-family: electronicFont;
+    font-size: 18px;
+}
+
+.floor-item {
+    margin-bottom: 12px;
+    padding: 10px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 8px;
+}
+.floor-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+.floor-name {
+    color: #ffeb7b;
+    font-weight: bold;
+}
+.floor-stats {
+    color: #fff;
+}
+.floor-dept {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 6px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+.fill-normal { background: #7bc5ae; }
+.fill-warning { background: #ffd43b; }
+.fill-danger { background: #ff6b6b; }
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.metric-box {
+    text-align: center;
+    padding: 12px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 8px;
+}
+.metric-value {
+    font-size: 28px;
+    font-family: electronicFont;
+    color: #ffeb7b;
+}
+.metric-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 5px;
+}
+
+.warning-item {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.wait-card {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+.text-white { color: #fff; }
+.text-muted { font-size: 12px; color: rgba(255,255,255,0.6); }
+.mt-5 { margin-top: 5px; }
+
+.chart-container {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+}

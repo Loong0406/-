@@ -1,0 +1,229 @@
+/* ========== 综合看板专属样式 ========== */
+
+/* 医院地图容器背景 */
+#hospitalMap {
+    background: linear-gradient(135deg,
+        rgba(7, 118, 181, 0.2) 0%,
+        rgba(7, 118, 181, 0.1) 100%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.03) 0px,
+            rgba(255, 255, 255, 0.03) 2px,
+            transparent 2px,
+            transparent 8px
+        );
+    border-radius: 8px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* 告警列表滚动条样式 */
+#alertList::-webkit-scrollbar {
+    width: 4px;
+}
+#alertList::-webkit-scrollbar-track {
+    background: rgba(7,118,181,0.3);
+    border-radius: 4px;
+}
+#alertList::-webkit-scrollbar-thumb {
+    background: #7bc5ae;
+    border-radius: 4px;
+}
+
+/* 确保科室图表完整显示 */
+#deptChart {
+    width: 100%;
+    height: 100%;
+}
+
+/* 修复右侧图表显示 */
+.mainbox .nav1 > li:last-child .boxnav {
+    padding: 8px 5px;
+}
+
+/* 确保图表容器有足够高度 */
+#energyChart, #staffChart {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+}
+
+/* 优化能耗图表 */
+#energyChart {
+    overflow: visible;
+}
+
+/* 指标卡片样式 */
+.metric-card {
+    text-align: center;
+    padding: 10px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.metric-value {
+    font-size: 32px;
+    font-family: electronicFont;
+    color: #ffeb7b;
+}
+.metric-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* 告警项样式 */
+.alert-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(7,118,181,0.3);
+    font-size: 13px;
+}
+
+/* 状态徽章 */
+.status-badge {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+.status-normal { background-color: #51cf66; }
+.status-warning { background-color: #ffd43b; }
+.status-danger { background-color: #ff6b6b; }
+
+/* 科室楼层分布样式 */
+.floor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+.floor-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(7,118,181,0.25);
+    border-radius: 10px;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border-left: 3px solid #7bc5ae;
+}
+.floor-item:hover {
+    background: rgba(7,118,181,0.45);
+    transform: translateX(5px);
+}
+.floor-icon {
+    width: 45px;
+    height: 45px;
+    background: #7bc5ae;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+}
+.floor-info {
+    flex: 1;
+}
+.floor-name {
+    font-size: 16px;
+    color: #ffeb7b;
+    font-weight: bold;
+}
+.floor-dept {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+}
+.floor-right {
+    text-align: right;
+}
+.floor-usage {
+    font-size: 20px;
+    font-family: electronicFont;
+    color: #7bc5ae;
+}
+.floor-beds {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 3px;
+}
+.progress-small {
+    width: 80px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.progress-small-fill {
+    height: 100%;
+    border-radius: 2px;
+}
+.fill-normal { background: #7bc5ae; }
+.fill-warning { background: #ffd43b; }
+.fill-danger { background: #ff6b6b; }
+
+/* 科室详情弹窗样式 */
+.dept-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    border-left: 4px solid #7bc5ae;
+    z-index: 10000;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    min-width: 250px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.dept-tooltip .title {
+    color: #ffeb7b;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 6px;
+}
+.dept-tooltip .row {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #fff;
+    line-height: 1.5;
+}
+.dept-tooltip .label {
+    color: #7bc5ae;
+    display: inline-block;
+    width: 70px;
+}
+.dept-tooltip .value {
+    color: #fff;
+}
+
+/* 入院出院卡片样式 */
+.inout-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+.inout-item {
+    flex: 1;
+    text-align: center;
+    padding: 6px;
+    background: rgba(7,118,181,0.2);
+    border-radius: 6px;
+}
+.inout-number {
+    font-size: 20px;
+    font-family: electronicFont;
+    color: #ffeb7b;
+}
+.inout-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+}

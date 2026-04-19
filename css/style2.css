@@ -1,0 +1,219 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "微软雅黑";
+}
+/* 父容器样式 */
+.container-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  /* 水平方向上从左侧开始排列 */
+  align-items: flex-start;
+  /* 垂直方向上从顶部开始排列 */
+  margin-left: 50px;
+  /* 与屏幕左侧保持空隙 */
+}
+/* 左侧第一个容器样式 */
+#main {
+  width: 1150px;
+  /* 根据需要调整宽度 */
+  height: 720px;
+  /* 高度设置 */
+  border: none;
+  /* 移除默认边框 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  /* 添加阴影效果 */
+  border-radius: 10px;
+  /* 添加圆角效果 */
+  margin-right: 50px;
+  /* 与右侧容器保持空隙 */
+  background-color: transparent;
+}
+/* 右侧容器父元素样式 */
+#right-containers {
+  display: flex;
+  flex-direction: column;
+  /* 子容器竖排排列 */
+  gap: 20px;
+  /* 第二个和第三个容器之间的间隙 */
+}
+/* 第二个和第三个容器样式 */
+#main1,
+#main2 {
+  width: 400px;
+  /* 根据需要调整宽度 */
+  height: 350px;
+  /* 每个容器的高度 */
+  border: none;
+  /* 移除默认边框 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  /* 添加阴影效果 */
+  border-radius: 10px;
+  /* 添加圆角效果 */
+  background-color: transparent;
+  /* 设置背景颜色 */
+}
+/* 可以为容器添加鼠标悬停效果 */
+#main,
+#main1,
+#main2 {
+  transition: transform 0.3s ease;
+  /* 平滑变换效果 */
+}
+#main:hover,
+#main1:hover,
+#main2:hover {
+  transform: scale(1.02);
+  /* 鼠标悬停时稍微放大 */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  /* 悬停时加深阴影 */
+}
+#a1 {
+  background-color: transparent;
+  border: 2px solid #f8fcf8;
+  padding: 10px 20px;
+  color: #fef8f8;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#a1:hover {
+  border-color: #ff0000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#a2 {
+  background-color: transparent;
+  border: 2px solid #f8fcf8;
+  padding: 10px 20px;
+  color: #fef8f8;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#a2:hover {
+  border-color: #ff0000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#a3 {
+  background-color: transparent;
+  border: 2px solid #f8fcf8;
+  padding: 10px 20px;
+  color: #fef8f8;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#a3:hover {
+  border-color: #ff0000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#a4 {
+  background-color: transparent;
+  border: 2px solid #f8fcf8;
+  padding: 10px 20px;
+  color: #fef8f8;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#a4:hover {
+  border-color: #ff0000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#a5 {
+  background-color: transparent;
+  border: 2px solid #f8fcf8;
+  padding: 10px 20px;
+  color: #fef8f8;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#a5:hover {
+  border-color: #ff0000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body {
+  color: #fff;
+  font-size: 16px;
+  background: #033c76 url(../images/bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+@font-face {
+  font-family: electronicFont;
+  src: url(../font/DS-DIGIT.TTF);
+}
+html,
+body {
+  min-height: 100%;
+}
+i {
+  margin: 0px;
+  padding: 0px;
+  text-indent: 0px;
+}
+img {
+  border: none;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+li {
+  list-style-type: none;
+}
+header {
+  position: relative;
+  height: 100px;
+  background: url(../images/head_bg.png) no-repeat;
+  background-size: 100% 100%;
+  top: 0;
+}
+header h1 {
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.87);
+  text-align: center;
+  line-height: 80px;
+}
+header .time {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  line-height: 75px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 17px;
+}
+header ul {
+  position: absolute;
+  width: auto;
+  display: flex;
+  top: 15px;
+  right: 0px;
+  background-color: #02a6b5;
+}
+header ul li {
+  width: 80px;
+  flex: 1;
+  line-height: 35px;
+  font-size: 15px;
+  color: #ffeb7b;
+  text-align: center;
+  font-family: electronicFont;
+  border-right: 4px solid #191755;
+}
+a.active,
+a:focus {
+  outline: none!important;
+  text-decoration: none;
+}
+a:hover {
+  color: #06c;
+  text-decoration: none !important;
+}

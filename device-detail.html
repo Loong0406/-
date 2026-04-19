@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="css/device.css">
+    <title>智慧医院 - 设备管理</title>
+</head>
+<body>
+<header>
+    <h1 class="pulll_left">🏥 智慧医院设备管理系统</h1>
+    <div class="menu menu2 pulll_left">
+        <ul>
+            <li><a href="index.html">综合看板</a></li>
+            <li><a href="bed.html">床位管理</a></li>
+            <li class="nav_active"><a href="device-detail.html">设备管理</a></li>
+            <li><a href="staff.html">人员调度</a></li>
+            <li><a href="logistics.html">后勤保障</a></li>
+        </ul>
+    </div>
+    <div class="time" id="showTime"></div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);
+        function time() {
+            clearTimeout(t);
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s = dt.getSeconds();
+            document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "日—" + h + "时" + m + "分" + s + "秒";
+            t = setTimeout(time, 1000);
+        }
+    </script>
+</header>
+
+<section>
+    <div class="mainbox">
+        <!-- 左侧：设备分类树 -->
+        <div class="column">
+            <div class="tree">
+                <h2>📋 医疗设备分类</h2>
+                <div class="chart"></div>
+            </div>
+        </div>
+
+        <!-- 右侧：设备详情 + 图表 -->
+        <div class="column">
+            <div id="text">
+                <h2 id="deviceName"><b>请点击左侧设备查看详情</b></h2>
+                <div id="deviceInfo"></div>
+            </div>
+            <div class="line">
+                <div class="chart"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="js/echarts.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/device-data.js"></script>
+<script src="js/device.js"></script>
+</body>
+</html>

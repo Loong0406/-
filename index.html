@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧医院管理与运维系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<header>
+    <h1 class="pulll_left">🏥 智慧医院管理与运维系统</h1>
+    <div class="menu menu2 pulll_left">
+        <ul>
+            <li class="nav_active"><a href="index.html">综合看板</a></li>
+            <li><a href="bed.html">床位管理</a></li>
+            <li><a href="device-detail.html">设备管理</a></li>
+            <li><a href="staff.html">人员调度</a></li>
+            <li><a href="logistics.html">后勤保障</a></li>
+        </ul>
+    </div>
+    <div class="time" id="showTime"></div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);
+        function time() {
+            clearTimeout(t);
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s = dt.getSeconds();
+            document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "日 — " + h + ":" + m + ":" + s;
+            t = setTimeout(time, 1000);
+        }
+    </script>
+</header>
+
+<section class="mainbox">
+    <ul class="clearfix nav1">
+        <!-- 左侧：核心指标 + 科室接诊 + 告警 -->
+        <li style="width: 32%">
+            <div class="box">
+                <h2>📊 今日核心指标</h2>
+                <div class="boxnav">
+                    <ul class="clearfix" style="display: flex; flex-wrap: wrap;">
+                        <li style="width: 50%; padding: 5px;">
+                            <div class="metric-card">
+                                <div class="metric-value" id="bedUsage">87<span style="font-size:16px">%</span></div>
+                                <div class="metric-label">床位使用率</div>
+                            </div>
+                        </li>
+                        <li style="width: 50%; padding: 5px;">
+                            <div class="metric-card">
+                                <div class="metric-value" id="avgWait">23<span style="font-size:16px">min</span></div>
+                                <div class="metric-label">平均等候时间</div>
+                            </div>
+                        </li>
+                        <li style="width: 50%; padding: 5px;">
+                            <div class="metric-card">
+                                <div class="metric-value" id="emergency">156</div>
+                                <div class="metric-label">急诊接诊量</div>
+                            </div>
+                        </li>
+                        <li style="width: 50%; padding: 5px;">
+                            <div class="metric-card">
+                                <div class="metric-value" id="surgery">23</div>
+                                <div class="metric-label">今日手术</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="inout-row">
+                        <div class="inout-item">
+                            <div class="inout-number" id="admitToday">48</div>
+                            <div class="inout-label">今日入院</div>
+                        </div>
+                        <div class="inout-item">
+                            <div class="inout-number" id="dischargeToday">52</div>
+                            <div class="inout-label">今日出院</div>
+                        </div>
+                        <div class="inout-item">
+                            <div class="inout-number" id="inpatientTotal">586</div>
+                            <div class="inout-label">当前住院</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>🏥 各科室接诊量排行</h2>
+                <div class="boxnav" style="height: 320px;" id="deptChart"></div>
+            </div>
+
+            <div class="box">
+                <h2>⚠️ 实时告警</h2>
+                <div class="boxnav" style="height: auto;min-height: 220px;" id="alertList"></div>
+            </div>
+        </li>
+
+        <!-- 中间：科室楼层分布 + 床位分布 -->
+        <li style="width: 40%">
+            <div class="box">
+                <h2>🏢 各科室楼层分布</h2>
+                <div class="boxnav mapc" style="height: 480px; position: relative; overflow: auto;">
+                    <div id="hospitalMap" style="height: 100%; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="box">
+                <h2>🛏️ 各楼层床位占用分布</h2>
+                <div class="boxnav" style="height: 250px;" id="bedChart"></div>
+            </div>
+        </li>
+
+        <!-- 右侧：设备状态 + 能耗趋势 + 人员排班 -->
+        <li style="width: 28%">
+            <div class="box">
+                <h2>🔧 大型设备运行状态</h2>
+                <div class="boxnav" style="height: 260px;" id="deviceChart"></div>
+            </div>
+            <div class="box">
+                <h2>⚡ 能耗实时监测</h2>
+                <div class="boxnav" style="height: 200px;" id="energyChart"></div>
+            </div>
+            <div class="box">
+                <h2>👨‍⚕️ 今日在岗人员</h2>
+                <div class="boxnav" style="height: 220px;" id="staffChart"></div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<script src="js/echarts.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/hospital.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

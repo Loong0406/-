@@ -1,0 +1,40 @@
+/* ========== 设备管理页面专属样式 ========== */
+
+/* 设备状态徽章 */
+.status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+.status-normal { background: #51cf66; color: #fff; }
+.status-warning { background: #ffd43b; color: #333; }
+.status-danger { background: #ff6b6b; color: #fff; }
+.status-maintain { background: #ff9f7f; color: #fff; }
+
+/* 设备信息行 */
+.info-row {
+    margin: 8px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.info-label {
+    display: inline-block;
+    width: 80px;
+    color: #7bc5ae;
+}
+.info-value {
+    color: #fff;
+}
+
+/* 自定义滚动条 */
+.device-list::-webkit-scrollbar {
+    width: 5px;
+}
+.device-list::-webkit-scrollbar-track {
+    background: rgba(7,118,181,0.3);
+}
+.device-list::-webkit-scrollbar-thumb {
+    background: #7bc5ae;
+    border-radius: 5px;
+}

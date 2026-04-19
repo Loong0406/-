@@ -1,0 +1,265 @@
+/* ========== 人员调度页面专属样式 ========== */
+
+/* 全局高度控制 - 铺满整屏 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.mainbox {
+    height: calc(100vh - 100px);
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.nav1 {
+    height: 100%;
+    display: flex;
+}
+
+.nav1 > li {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 6px;
+}
+
+/* 左侧列 */
+.nav1 > li:first-child {
+    width: 32%;
+}
+
+/* 中间列 */
+.nav1 > li:nth-child(2) {
+    width: 40%;
+}
+
+/* 右侧列 */
+.nav1 > li:last-child {
+    width: 28%;
+}
+
+/* 每个盒子平均分配空间 */
+.box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.box:last-child {
+    margin-bottom: 0;
+}
+
+.box h2 {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 8px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.boxnav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+/* 人员统计卡片 */
+.yqlist ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.yqlist li {
+    width: 50%;
+    text-align: center;
+    padding: 8px 0;
+}
+.yq {
+    font-size: 28px;
+    font-family: electronicFont;
+    color: #ffeb7b;
+}
+.yqlist li span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    display: block;
+    margin-top: 3px;
+}
+
+/* 今日摘要卡片 */
+.summary-cards {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.summary-card {
+    flex: 1;
+    min-width: 55px;
+    background: rgba(7,118,181,0.25);
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+}
+.summary-number {
+    font-size: 20px;
+    font-family: electronicFont;
+    color: #ffeb7b;
+}
+.summary-label {
+    font-size: 9px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+}
+
+/* 人员卡片 */
+.staff-card {
+    background: rgba(7,118,181,0.2);
+    border-radius: 6px;
+    padding: 7px 10px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.staff-card:hover {
+    background: rgba(7,118,181,0.4);
+    transform: translateX(3px);
+}
+.staff-name { font-size: 13px; color: #fff; font-weight: bold; }
+.staff-dept { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.badge-on { background: #51cf66; padding: 2px 8px; border-radius: 12px; font-size: 10px; color: #fff; }
+.badge-off { background: #888; padding: 2px 8px; border-radius: 12px; font-size: 10px; color: #fff; }
+.badge-leave { background: #ff9f7f; padding: 2px 8px; border-radius: 12px; font-size: 10px; color: #fff; }
+
+/* 排班表 */
+.schedule-table {
+    width: 100%;
+    color: #fff;
+    font-size: 11px;
+    border-collapse: collapse;
+}
+.schedule-table th,
+.schedule-table td {
+    padding: 6px 3px;
+    text-align: center;
+    border-bottom: 1px solid rgba(7,118,181,0.2);
+}
+.schedule-table th {
+    background: rgba(7,118,181,0.3);
+    color: #ffeb7b;
+    font-weight: bold;
+}
+.schedule-table tr:hover {
+    background: rgba(7,118,181,0.15);
+}
+.today-highlight {
+    background: rgba(123,197,174,0.2);
+}
+
+/* 缺口预警 */
+.shortage-item {
+    padding: 8px;
+    margin-bottom: 8px;
+    background: rgba(255,107,107,0.2);
+    border-left: 3px solid #ff6b6b;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+.shortage-item:hover {
+    background: rgba(255,107,107,0.35);
+    transform: translateX(3px);
+}
+
+/* 滚动条 */
+.boxnav::-webkit-scrollbar {
+    width: 4px;
+}
+.boxnav::-webkit-scrollbar-track {
+    background: rgba(7,118,181,0.3);
+    border-radius: 4px;
+}
+.boxnav::-webkit-scrollbar-thumb {
+    background: #7bc5ae;
+    border-radius: 4px;
+}
+
+/* 按钮 */
+.btn-action {
+    background: transparent;
+    border: 1px solid #7bc5ae;
+    color: #7bc5ae;
+    padding: 3px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.2s;
+    margin-top: 5px;
+}
+.btn-action:hover {
+    background: #7bc5ae;
+    color: #fff;
+}
+
+/* 人员详情弹窗 */
+.staff-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px 14px;
+    border-left: 4px solid #7bc5ae;
+    z-index: 10000;
+    pointer-events: none;
+    min-width: 210px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.staff-tooltip .title {
+    color: #ffeb7b;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 4px;
+}
+.staff-tooltip .row {
+    margin-top: 5px;
+    font-size: 11px;
+    color: #fff;
+}
+.staff-tooltip .label {
+    color: #7bc5ae;
+    display: inline-block;
+    width: 62px;
+}
+
+/* 状态指示器 */
+.status-indicator {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.status-on { background: #51cf66; box-shadow: 0 0 4px #51cf66; }
+.status-off { background: #888; }
+.status-leave { background: #ff9f7f; }
+
+/* 图表容器 */
+.chart-container {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+}
